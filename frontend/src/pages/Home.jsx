@@ -58,35 +58,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Workshop banner */}
-      <section
-        data-testid="workshop-banner"
-        className="relative h-[60vh] min-h-[420px] overflow-hidden"
-      >
-        <img
-          src={WORKSHOP_IMG}
-          alt="The workshop"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-[#1a1816]/55" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 h-full flex items-center">
-          <div className="max-w-2xl">
-            <p className="label-eyebrow text-[#C8A07A] mb-6">Visit the Shop</p>
-            <h2 className="font-serif-display text-4xl sm:text-5xl text-[#F9F6F0] leading-[1.05]">
-              The workshop is open
-              <br />
-              <span className="italic text-[#C8A07A]">by appointment.</span>
-            </h2>
-            <Link
-              to="/contact"
-              data-testid="workshop-contact-cta"
-              className="inline-flex items-center gap-2 mt-8 px-8 py-4 bg-[#F9F6F0] text-[#2C2A28] label-eyebrow hover:bg-[#C8A07A]"
-            >
-              Contact Here <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Workshop banner removed */}
     </div>
   );
 }

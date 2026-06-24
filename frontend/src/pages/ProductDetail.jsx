@@ -110,7 +110,7 @@ export default function ProductDetail() {
               </p>
             </div>
 
-            <p className="text-[#5C5852] leading-relaxed text-lg">
+            <p className="text-[#5C5852] leading-relaxed text-lg" style={{display:'none'}}>
               {product.description}
             </p>
 
