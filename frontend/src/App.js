@@ -9,6 +9,16 @@ import Shop from "@/pages/Shop";
 import ProductDetail from "@/pages/ProductDetail";
 import Contact from "@/pages/Contact";
 
+const TOAST_OPTIONS = {
+  style: {
+    background: "#2C2A28",
+    color: "#F9F6F0",
+    border: "1px solid #8C4A32",
+    borderRadius: "2px",
+    fontFamily: "Work Sans, sans-serif",
+  },
+};
+
 function App() {
   return (
     <div className="App font-sans-body">
@@ -25,15 +35,7 @@ function App() {
         <Footer />
         <Toaster
           position="bottom-right"
-          toastOptions={{
-            style: {
-              background: "#2C2A28",
-              color: "#F9F6F0",
-              border: "1px solid #8C4A32",
-              borderRadius: "2px",
-              fontFamily: "Work Sans, sans-serif",
-            },
-          }}
+          toastOptions={TOAST_OPTIONS}
         />
       </BrowserRouter>
     </div>
