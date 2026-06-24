@@ -31,6 +31,17 @@ api_router = APIRouter(prefix="/api")
 
 # ---------- Product catalog (server-authoritative) ----------
 PRODUCTS: Dict[str, Dict] = {
+    "arched-picture-frame": {
+        "id": "arched-picture-frame",
+        "name": "Arched Picture Frame",
+        "tagline": "",
+        "year": "2025",
+        "status": "for_sale",
+        "category": "Frames",
+        "image": "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/2rtqwvhm_IMG_1688.jpg",
+        "description": "",
+        "specs": ["Red oak frame", "Steam-bent arch", "Walnut peg accents", "Hand-finished"],
+    },
     "crucifix": {
         "id": "crucifix",
         "name": "Hand-Carved Crucifix",
