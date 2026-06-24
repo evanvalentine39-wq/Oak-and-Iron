@@ -1,0 +1,90 @@
+{
+  "theme": "light",
+  "archetype": "Organic & Earthy",
+  "design_philosophy": "Rustic, warm, editorial, handcrafted feel. Avoid AI-slop standard patterns. Focus on wood tones, natural materials, and asymmetric layouts to emphasize craftsmanship and storytelling.",
+  "colors": {
+    "background": "#F9F6F0",
+    "surface": "#F1EBE4",
+    "primary": "#8C4A32",
+    "primary_hover": "#703B28",
+    "text_primary": "#2C2A28",
+    "text_secondary": "#5C5852",
+    "border": "#E3DACD",
+    "success": "#4A5D23",
+    "error": "#B22222"
+  },
+  "typography": {
+    "heading_font": "Playfair Display",
+    "body_font": "Work Sans",
+    "heading_weights": [400, 700, 900],
+    "body_weights": [300, 400, 500],
+    "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-none text-[#2C2A28] font-serif",
+    "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight text-[#2C2A28] font-serif",
+    "h3": "text-xl sm:text-2xl text-[#2C2A28] font-serif",
+    "body": "text-base leading-relaxed text-[#5C5852] font-sans",
+    "label": "text-xs tracking-[0.2em] uppercase text-[#8C4A32] font-sans"
+  },
+  "layout": {
+    "spacing_system": "Generous (p-8 to p-24) to create an editorial gallery feel.",
+    "container": "max-w-7xl mx-auto px-6 sm:px-12",
+    "grids": "Asymmetric bento or masonry grids (md:grid-cols-12) for portfolio and shop sections. Never fill 100% of the grid perfectly.",
+    "border_radius": "rounded-none or max rounded-sm. Keep edges sharp and tactile."
+  },
+  "components": {
+    "buttons": "Flat, sharp edges (rounded-none), bg-[#8C4A32] hover:bg-[#703B28] text-[#F9F6F0] px-8 py-3 transition-colors duration-300.",
+    "cards": "No visible boundaries unless necessary (border-[#E3DACD]). Use pure HTML/Tailwind for marketing/editorial sections, Shadcn for Shop/Forms. Minimal shadows (shadow-sm or none).",
+    "navigation": "Sticky, glassmorphism but tinted warm (backdrop-blur-xl bg-[#F9F6F0]/80 border-b border-[#E3DACD]). Logo must be serif, links clearly visible.",
+    "footer": "Dark warm contrast (bg-[#2C2A28] text-[#F9F6F0]) with massive 'Let's Talk' CTA and generous vertical padding (py-24).",
+    "inputs": "Shadcn based, but customized. Sharp edges, border-[#E3DACD], focus:ring-[#8C4A32] bg-[#F9F6F0]."
+  },
+  "sections": {
+    "hero": "Immersive wide image layout, max-h-[85vh]. If text overlaps image, use bg-gradient-to-r from-[#2C2A28]/60 to-transparent for contrast. Asymmetric alignment.",
+    "portfolio": "Tetris Grid (col-span-full, col-span-4, col-span-8). Focus on close-ups of wood grain. Hover reveals project name.",
+    "shop": "Minimalist editorial product cards. Image takes priority. Clean serif title, muted price. 'Buy Now' appears on hover or subtle below.",
+    "product_detail": "Split screen: Sticky large image on the left, scrolling details, story, and checkout (Stripe) on the right.",
+    "contact": "Editorial split. Left side: Atmospheric workshop image. Right side: Clean, sharp-edged form."
+  },
+  "motion": {
+    "hover": "Subtle scale-up (scale-105) for images, opacity fades for text. Slow transitions (duration-500 ease-out).",
+    "scroll": "Use Lenis for momentum scrolling (simulates heavy, premium feel).",
+    "page_load": "Staggered fade-in for grid items."
+  },
+  "image_urls": {
+    "hero": {
+      "url": "https://images.pexels.com/photos/313776/pexels-photo-313776.jpeg",
+      "description": "Carpenter focuses on woodworking project inside a busy workshop"
+    },
+    "craftsman": {
+      "url": "https://images.unsplash.com/photo-1659930087003-2d64e33181f7",
+      "description": "A person cutting a piece of wood, close up of hands"
+    },
+    "workshop_texture": {
+      "url": "https://images.pexels.com/photos/14951839/pexels-photo-14951839.jpeg",
+      "description": "Vintage hand tools in a rustic workshop"
+    },
+    "product_table": {
+      "url": "https://images.unsplash.com/photo-1758977403865-f79e156415b3",
+      "description": "Handcrafted wooden dining table"
+    },
+    "product_board": {
+      "url": "https://images.unsplash.com/photo-1617695615794-a5abcece0f48",
+      "description": "Wooden cutting board on wooden table"
+    },
+    "product_bowl": {
+      "url": "https://images.pexels.com/photos/31703678/pexels-photo-31703678.jpeg",
+      "description": "Artisanal wooden bowl on display"
+    },
+    "product_chair": {
+      "url": "https://images.unsplash.com/photo-1640938776314-4d303f8a1380",
+      "description": "Modern rustic wooden chair"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Use pure HTML and Tailwind for layout to achieve the asymmetrical, editorial design. Do not rely heavily on generic Shadcn Card wrappers for marketing sections.",
+    "Install and configure Playfair Display (headings) and Work Sans (body). Do NOT use Inter or Roboto.",
+    "Ensure all interactive elements (buttons, product cards, form inputs) include proper data-testid attributes.",
+    "Use standard browser scrolling if Lenis is unavailable, but prioritize smooth, deliberate interactions.",
+    "Implement the 'Shop' and 'Product Detail' pages with a high-end editorial feel—large images, plenty of negative space, and clear typography.",
+    "Ensure the hero image has a sufficient gradient overlay to maintain text contrast (APCA compliant)."
+  ]
+}
