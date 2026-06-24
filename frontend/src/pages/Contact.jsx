@@ -67,7 +67,7 @@ export default function Contact() {
                 <Mail size={18} className="mt-1 text-[#8C4A32]" />
                 <div>
                   <p className="label-eyebrow text-[#8C4A32]">Email</p>
-                  <p>hello@oakandiron.com</p>
+                  <p>oakndiron@gmail.com</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">

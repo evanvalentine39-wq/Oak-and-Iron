@@ -1,21 +1,30 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, Loader2 } from "lucide-react";
-import { toast } from "sonner";
-import { createCheckoutSession, fetchProduct } from "@/lib/api";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { fetchProduct } from "@/lib/api";
 
-const formatPrice = (n, c = "usd") =>
-  new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: c.toUpperCase(),
-    maximumFractionDigits: 0,
-  }).format(n);
+const STATUS_META = {
+  for_sale: {
+    label: "For Sale",
+    note: "This piece is available. Use the contact form to inquire about price and shipping.",
+    classes: "bg-[#4A5D23] text-[#F9F6F0]",
+  },
+  sold: {
+    label: "Sold",
+    note: "This one has found its home. I can build something similar — get in touch to start a conversation.",
+    classes: "bg-[#2C2A28] text-[#F9F6F0]",
+  },
+  not_for_sale: {
+    label: "Not For Sale",
+    note: "Kept for the record. If you want one like it, reach out and we can talk commission.",
+    classes: "bg-[#F9F6F0] text-[#2C2A28] border border-[#2C2A28]",
+  },
+};
 
 export default function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [checkingOut, setCheckingOut] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -28,22 +37,6 @@ export default function ProductDetail() {
       .catch(() => setError("Piece not found."))
       .finally(() => setLoading(false));
   }, [id]);
-
-  const handleBuy = async () => {
-    if (!product) return;
-    setCheckingOut(true);
-    try {
-      const { url } = await createCheckoutSession(product.id);
-      if (url) {
-        window.location.href = url;
-      } else {
-        throw new Error("No checkout URL");
-      }
-    } catch (e) {
-      toast.error("Couldn't start checkout. Please try again or reach out directly.");
-      setCheckingOut(false);
-    }
-  };
 
   if (loading) {
     return (
@@ -59,28 +52,33 @@ export default function ProductDetail() {
   if (error || !product) {
     return (
       <div className="pt-40 pb-24 max-w-3xl mx-auto px-6 text-center">
-        <p data-testid="product-error" className="label-eyebrow text-[#B22222] mb-6">
+        <p
+          data-testid="product-error"
+          className="label-eyebrow text-[#B22222] mb-6"
+        >
           {error || "Piece not found."}
         </p>
         <Link
-          to="/shop"
+          to="/portfolio"
           className="inline-flex items-center gap-2 label-eyebrow text-[#8C4A32] border-b border-[#8C4A32] pb-1"
         >
-          <ArrowLeft size={14} /> Back to the shop
+          <ArrowLeft size={14} /> Back to the portfolio
         </Link>
       </div>
     );
   }
 
+  const status = STATUS_META[product.status] || STATUS_META.not_for_sale;
+
   return (
     <div data-testid="product-detail-page" className="pt-28 pb-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <Link
-          to="/shop"
+          to="/portfolio"
           data-testid="product-back-link"
           className="inline-flex items-center gap-2 label-eyebrow text-[#5C5852] hover:text-[#8C4A32] mb-12"
         >
-          <ArrowLeft size={14} /> All pieces
+          <ArrowLeft size={14} /> All work
         </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
@@ -92,6 +90,14 @@ export default function ProductDetail() {
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
+              <div className="absolute top-4 right-4">
+                <span
+                  data-testid="product-status-badge"
+                  className={`label-eyebrow px-3 py-1 ${status.classes}`}
+                >
+                  {status.label}
+                </span>
+              </div>
             </div>
           </div>
 
@@ -99,6 +105,7 @@ export default function ProductDetail() {
             <div>
               <p className="label-eyebrow text-[#8C4A32] mb-4">
                 {product.category}
+                {product.year ? ` — ${product.year}` : ""}
               </p>
               <h1
                 data-testid="product-name"
@@ -111,13 +118,13 @@ export default function ProductDetail() {
               </p>
             </div>
 
-            <div className="flex items-baseline justify-between border-y border-[#E3DACD] py-6">
-              <p className="label-eyebrow text-[#5C5852]">Price</p>
+            <div className="border-y border-[#E3DACD] py-6">
+              <p className="label-eyebrow text-[#5C5852] mb-2">Status</p>
               <p
-                data-testid="product-price"
-                className="font-serif-display text-3xl text-[#2C2A28]"
+                data-testid="product-status-note"
+                className="font-serif-display text-xl text-[#2C2A28] leading-snug"
               >
-                {formatPrice(product.price, product.currency)}
+                {status.note}
               </p>
             </div>
 
@@ -142,30 +149,16 @@ export default function ProductDetail() {
               </ul>
             </div>
 
-            <div className="space-y-4 pt-4">
-              <button
-                data-testid="product-buy-btn"
-                onClick={handleBuy}
-                disabled={checkingOut}
-                className="w-full inline-flex items-center justify-center gap-2 px-8 py-5 bg-[#2C2A28] text-[#F9F6F0] label-eyebrow hover:bg-[#8C4A32] transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                {checkingOut ? (
-                  <>
-                    <Loader2 size={16} className="animate-spin" /> Taking you to checkout…
-                  </>
-                ) : (
-                  <>Buy this piece — {formatPrice(product.price, product.currency)}</>
-                )}
-              </button>
+            <div className="pt-4">
               <Link
                 to="/contact"
-                data-testid="product-commission-link"
-                className="block text-center w-full px-8 py-4 border border-[#2C2A28] text-[#2C2A28] label-eyebrow hover:bg-[#2C2A28] hover:text-[#F9F6F0] transition-colors duration-300"
+                data-testid="product-inquire-link"
+                className="w-full inline-flex items-center justify-center gap-2 px-8 py-5 bg-[#2C2A28] text-[#F9F6F0] label-eyebrow hover:bg-[#8C4A32] transition-colors duration-300"
               >
-                Or commission something similar
+                Inquire about this piece <ArrowRight size={16} />
               </Link>
-              <p className="text-xs text-[#5C5852] text-center pt-2">
-                Secure checkout via Stripe. Ships from Hutto, TX.
+              <p className="text-xs text-[#5C5852] text-center pt-3">
+                All inquiries go directly to the maker in Hutto, TX.
               </p>
             </div>
           </div>

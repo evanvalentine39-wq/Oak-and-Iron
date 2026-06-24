@@ -22,16 +22,3 @@ export const submitContact = async (payload) => {
   const { data } = await api.post("/contact", payload);
   return data;
 };
-
-export const createCheckoutSession = async (productId) => {
-  const { data } = await api.post("/checkout/session", {
-    product_id: productId,
-    origin_url: window.location.origin,
-  });
-  return data;
-};
-
-export const getPaymentStatus = async (sessionId) => {
-  const { data } = await api.get(`/checkout/status/${sessionId}`);
-  return data;
-};

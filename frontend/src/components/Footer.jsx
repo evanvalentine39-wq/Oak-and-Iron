@@ -35,8 +35,8 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/shop" className="hover:text-[#F9F6F0]">
-                    Shop
+                  <Link to="/portfolio" className="hover:text-[#F9F6F0]">
+                    Portfolio
                   </Link>
                 </li>
                 <li>
@@ -53,7 +53,7 @@ export default function Footer() {
                   <MapPin size={14} /> Hutto, TX
                 </li>
                 <li className="flex items-center gap-2">
-                  <Mail size={14} /> hello@oakandiron.com
+                  <Mail size={14} /> oakndiron@gmail.com
                 </li>
                 <li className="flex items-center gap-2">
                   <Instagram size={14} /> @oakandiron
