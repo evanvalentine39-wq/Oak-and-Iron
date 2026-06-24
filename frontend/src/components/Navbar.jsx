@@ -10,9 +10,9 @@ const links = [
 
 export default function Navbar() {
   const [scrolledState, setScrolled] = useState(false);
-  const scrolled = scrolledState || location.pathname !== "/";
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const scrolled = scrolledState || location.pathname !== "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
