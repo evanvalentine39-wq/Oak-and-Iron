@@ -81,11 +81,11 @@ export default function Navbar() {
         </button>
       </div>
 
-      {open && (
-        <div
+      <div
           data-testid="nav-mobile-panel"
-          className="md:hidden bg-[#F9F6F0] border-t border-[#E3DACD] px-6 py-6 flex flex-col gap-5"
+          className={`md:hidden overflow-hidden transition-all duration-500 ease-out ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"} backdrop-blur-xl bg-[#F9F6F0]/95 border-t border-[#E3DACD]`}
         >
+          <div className="px-8 py-8 flex flex-col gap-6">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -104,8 +104,8 @@ export default function Navbar() {
           >
             Commission a Piece
           </Link>
+          </div>
         </div>
-      )}
     </header>
   );
 }
