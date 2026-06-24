@@ -1,0 +1,29 @@
+{
+  "summary": "First-iteration smoke test of Hearthwood Studio woodworking portfolio + e-commerce app. All backend endpoints (root, products list/detail, contact, Stripe checkout session, checkout status) returned correct status codes and response shapes. Frontend Home, Shop, Contact, Product Detail and Payment Return pages all loaded and functioned. Stripe checkout redirect to checkout.stripe.com verified. Contact form submission shows success message and persists to MongoDB.",
+  "tested_scope": ["backend", "frontend", "integration"],
+  "passed": [
+    "GET /api/ -> 200 {message: 'Hearthwood Studio API'}",
+    "GET /api/products -> 200, 4 products with all required fields (id,name,tagline,price,currency,category,image,description,specs)",
+    "GET /api/products/walnut-cutting-board -> 200 with correct name/price",
+    "GET /api/products/<invalid> -> 404",
+    "POST /api/contact valid payload -> 200 with id and created_at",
+    "POST /api/contact invalid email -> 422",
+    "POST /api/contact missing required fields -> 422",
+    "POST /api/checkout/session valid -> 200 returns Stripe url + session_id",
+    "POST /api/checkout/session invalid product_id -> 404",
+    "GET /api/checkout/status/{session_id} -> 200 with session_id, status='open', payment_status='unpaid', amount_total=220.0 (dollars), currency='usd', product_id='cherry-bowl'",
+    "Home page: navbar, hero, 4 portfolio cards visible",
+    "Shop page: 4 staggered shop cards rendered",
+    "Hero 'Contact Here' CTA navigates to /contact",
+    "Contact form: filling and submitting valid data shows contact-success-message",
+    "Product detail /shop/walnut-cutting-board: shows name 'Walnut End-Grain Cutting Board' and price '$145'",
+    "Buy button: triggers /api/checkout/session and redirects to https://checkout.stripe.com/c/pay/cs_test_... (Stripe checkout reached, did NOT complete payment)",
+    "Payment return page with fake session_id renders payment-return-page with label 'Confirming your purchase' (polling state)"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": "Stripe payment was not completed end-to-end per instructions; only session creation + redirect to Stripe verified. Payment return polling state confirmed; eventual error/timeout state with fake session not exercised but expected per design."
+}
