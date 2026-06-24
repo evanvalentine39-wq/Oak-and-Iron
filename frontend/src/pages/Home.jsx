@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
-const HERO_IMG = "https://images.unsplash.com/photo-1758977403865-f79e156415b3?w=1920&q=80";
+const HERO_IMG = "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/m8730dla_IMG_2813.jpg";
 const WORKSHOP_IMG = "https://images.pexels.com/photos/14951839/pexels-photo-14951839.jpeg";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       >
         <img
           src={HERO_IMG}
-          alt="Woodworker at the bench"
+          alt="A handcrafted wooden harp on a workbench in Hutto, Texas"
           className="absolute inset-0 w-full h-full object-cover ken-burns"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a1816]/85 via-[#1a1816]/55 to-transparent" />

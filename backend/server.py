@@ -30,69 +30,7 @@ api_router = APIRouter(prefix="/api")
 
 
 # ---------- Product catalog (server-authoritative) ----------
-PRODUCTS: Dict[str, Dict] = {
-    "walnut-cutting-board": {
-        "id": "walnut-cutting-board",
-        "name": "Walnut End-Grain Cutting Board",
-        "tagline": "Built for a lifetime of meals.",
-        "year": "2025",
-        "status": "for_sale",
-        "category": "Kitchen",
-        "image": "https://images.unsplash.com/photo-1617695615794-a5abcece0f48",
-        "description": (
-            "Hand-cut from kiln-dried American black walnut, this end-grain board "
-            "is finished with food-safe mineral oil and beeswax. Each piece is "
-            "sanded through eight grits for a glass-smooth surface that gets "
-            "softer with age."
-        ),
-        "specs": ["18\" x 12\" x 1.75\"", "American Black Walnut", "Food-safe finish", "Hand-signed"],
-    },
-    "oak-dining-table": {
-        "id": "oak-dining-table",
-        "name": "Live-Edge Oak Dining Table",
-        "tagline": "A table that anchors a room.",
-        "year": "2025",
-        "status": "sold",
-        "category": "Furniture",
-        "image": "https://images.unsplash.com/photo-1758977403865-f79e156415b3",
-        "description": (
-            "Crafted from a single slab of reclaimed white oak with hand-forged "
-            "steel hairpin legs. The live edge is preserved and stabilized with "
-            "natural epoxy. Seats six comfortably."
-        ),
-        "specs": ["84\" x 38\" x 30\"", "Reclaimed White Oak", "Hand-forged steel base", "8-12 week lead time"],
-    },
-    "cherry-bowl": {
-        "id": "cherry-bowl",
-        "name": "Turned Cherry Wood Bowl",
-        "tagline": "A vessel turned from a single block.",
-        "year": "2025",
-        "status": "not_for_sale",
-        "category": "Decor",
-        "image": "https://images.pexels.com/photos/31703678/pexels-photo-31703678.jpeg",
-        "description": (
-            "Turned on a manual lathe from locally sourced wild cherry. The "
-            "subtle figure of the grain is brought forward with a hand-rubbed "
-            "tung oil finish. Each bowl is signed and dated."
-        ),
-        "specs": ["10\" diameter x 4\" deep", "Wild Cherry", "Hand-turned", "Tung oil finish"],
-    },
-    "ash-side-chair": {
-        "id": "ash-side-chair",
-        "name": "Steam-Bent Ash Side Chair",
-        "tagline": "Patience, bent into form.",
-        "year": "2025",
-        "status": "for_sale",
-        "category": "Furniture",
-        "image": "https://images.unsplash.com/photo-1640938776314-4d303f8a1380",
-        "description": (
-            "The back and arms are steam-bent ash, joined by hand-cut mortise "
-            "and tenon to a hand-shaped seat. Finished with our shop-made "
-            "linseed wax. Comfortable enough for long dinners."
-        ),
-        "specs": ["32\" tall, 18\" seat", "White Ash", "Mortise & tenon joinery", "Linseed wax finish"],
-    },
-}
+PRODUCTS: Dict[str, Dict] = {}
 
 
 # ---------- Pydantic Models ----------

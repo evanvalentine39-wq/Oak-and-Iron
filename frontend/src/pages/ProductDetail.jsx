@@ -3,24 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { fetchProduct } from "@/lib/api";
 
-const STATUS_META = {
-  for_sale: {
-    label: "For Sale",
-    note: "This piece is available. Use the contact form to inquire about price and shipping.",
-    classes: "bg-[#4A5D23] text-[#F9F6F0]",
-  },
-  sold: {
-    label: "Sold",
-    note: "This one has found its home. I can build something similar — get in touch to start a conversation.",
-    classes: "bg-[#2C2A28] text-[#F9F6F0]",
-  },
-  not_for_sale: {
-    label: "Not For Sale",
-    note: "Kept for the record. If you want one like it, reach out and we can talk commission.",
-    classes: "bg-[#F9F6F0] text-[#2C2A28] border border-[#2C2A28]",
-  },
-};
-
 export default function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -68,8 +50,6 @@ export default function ProductDetail() {
     );
   }
 
-  const status = STATUS_META[product.status] || STATUS_META.not_for_sale;
-
   return (
     <div data-testid="product-detail-page" className="pt-28 pb-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
@@ -90,14 +70,6 @@ export default function ProductDetail() {
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute top-4 right-4">
-                <span
-                  data-testid="product-status-badge"
-                  className={`label-eyebrow px-3 py-1 ${status.classes}`}
-                >
-                  {status.label}
-                </span>
-              </div>
             </div>
           </div>
 
@@ -115,16 +87,6 @@ export default function ProductDetail() {
               </h1>
               <p className="mt-3 italic text-lg text-[#5C5852]">
                 {product.tagline}
-              </p>
-            </div>
-
-            <div className="border-y border-[#E3DACD] py-6">
-              <p className="label-eyebrow text-[#5C5852] mb-2">Status</p>
-              <p
-                data-testid="product-status-note"
-                className="font-serif-display text-xl text-[#2C2A28] leading-snug"
-              >
-                {status.note}
               </p>
             </div>
 
