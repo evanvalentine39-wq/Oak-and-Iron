@@ -1,0 +1,23 @@
+{
+  "summary": "Verified the ScrollToTop fix for Oak & Iron portfolio. All 4 scroll-reset scenarios FAILED. Root cause: ScrollToTop is imported in /app/frontend/src/App.js (line 6) but never rendered as a JSX element inside <BrowserRouter>. The component must be added as <ScrollToTop /> above <Navbar /> for the useEffect on pathname to run.",
+  "tested_scope": ["frontend"],
+  "passed": [
+    "Site loads correctly on https://timber-works-9.preview.emergentagent.com/",
+    "React Router navigation between /, /portfolio, /portfolio/:id, /contact works",
+    "Portfolio cards present (5 found) and clickable to detail pages"
+  ],
+  "failed": [
+    {"area": "ScrollToTop - Home -> Portfolio", "issue": "After scrolling Home to bottom (scrollY=637) and clicking PORTFOLIO nav link, /portfolio loads with scrollY=637 (expected 0).", "evidence": "TEST1 (Home->Portfolio): URL=/portfolio, scrollY=637 FAIL", "priority": "HIGH"},
+    {"area": "ScrollToTop - Portfolio -> Detail", "issue": "From /portfolio scrolled to bottom (scrollY=2890), clicking a card opens /portfolio/arched-picture-frame with scrollY=445 (expected 0).", "evidence": "TEST2 (Portfolio->Detail): URL=/portfolio/arched-picture-frame, scrollY=445 FAIL", "priority": "HIGH"},
+    {"area": "ScrollToTop - Detail -> Contact", "issue": "From detail page scrolled to 1027, clicking CONTACT nav, /contact loads with scrollY=1027 (expected 0).", "evidence": "TEST3 (Detail->Contact): URL=/contact, scrollY=1027 FAIL", "priority": "HIGH"},
+    {"area": "ScrollToTop - Contact -> Home", "issue": "From /contact scrolled to 1228, clicking HOME nav, / loads with scrollY=637 (expected 0).", "evidence": "TEST4 (Contact->Home): URL=/, scrollY=637 FAIL", "priority": "HIGH"},
+    {"area": "App.js JSX", "issue": "ScrollToTop component is imported at line 6 of /app/frontend/src/App.js but is NOT rendered anywhere inside the BrowserRouter. The JSX tree only contains <Navbar />, <main><Routes>...</Routes></main>, <Footer />, <Toaster />.", "evidence": "view of /app/frontend/src/App.js shows no <ScrollToTop /> element", "priority": "HIGH"}
+  ],
+  "action_items": [
+    "In /app/frontend/src/App.js, render the ScrollToTop component inside <BrowserRouter> above <Navbar />. Example:\n  <BrowserRouter>\n    <ScrollToTop />\n    <Navbar />\n    ...\n  </BrowserRouter>",
+    "After the fix, re-run all 4 navigation scenarios to confirm window.scrollY === 0 on each route change."
+  ],
+  "success_rate": {"backend": "n/a (not tested)", "frontend": "0% (0/4 scroll-reset scenarios pass)"},
+  "retest_needed": true,
+  "full_testing_deferred": true
+}
