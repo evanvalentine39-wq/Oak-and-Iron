@@ -36,7 +36,7 @@ PRODUCTS: Dict[str, Dict] = {
         "name": "Arched Picture Frame",
         "tagline": "",
         "year": "2025",
-        "status": "for_sale",
+        "status": "not_for_sale",
         "category": "Frames",
         "image": "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/2rtqwvhm_IMG_1688.jpg",
         "description": "",
