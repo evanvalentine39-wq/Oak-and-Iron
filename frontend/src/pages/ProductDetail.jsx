@@ -105,7 +105,7 @@ export default function ProductDetail() {
               >
                 {product.name}
               </h1>
-              <p className="mt-3 italic text-lg text-[#5C5852]">
+              <p className="mt-3 italic text-lg text-[#5C5852]" style={{display:'none'}}>
                 {product.tagline}
               </p>
             </div>

@@ -119,7 +119,6 @@ export default function Shop() {
                     <h2 className="font-serif-display text-2xl sm:text-3xl text-[#2C2A28] group-hover:text-[#8C4A32] transition-colors duration-300">
                       {p.name}
                     </h2>
-                    <p className="mt-1 italic text-[#5C5852]">{p.tagline}</p>
                   </div>
                   {p.year && (
                     <p className="font-serif-display text-lg text-[#8C4A32] whitespace-nowrap">
