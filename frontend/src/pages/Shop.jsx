@@ -88,6 +88,26 @@ export default function Shop() {
                       {p.category}
                     </span>
                   </div>
+                  {p.status && (
+                    <div className="absolute top-4 right-4">
+                      <span
+                        data-testid={`shop-card-status-${p.id}`}
+                        className={`label-eyebrow px-3 py-1 ${
+                          p.status === "for_sale"
+                            ? "bg-[#4A5D23] text-[#F9F6F0]"
+                            : p.status === "sold"
+                            ? "bg-[#2C2A28] text-[#F9F6F0]"
+                            : "bg-[#F9F6F0] text-[#2C2A28] border border-[#2C2A28]"
+                        }`}
+                      >
+                        {p.status === "for_sale"
+                          ? "For Sale"
+                          : p.status === "sold"
+                          ? "Sold"
+                          : "Not For Sale"}
+                      </span>
+                    </div>
+                  )}
                   <div className="absolute bottom-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
                     <span className="inline-flex items-center gap-2 bg-[#2C2A28] text-[#F9F6F0] label-eyebrow px-4 py-2">
                       View piece <ArrowUpRight size={14} />

@@ -70,6 +70,26 @@ export default function ProductDetail() {
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
+              {product.status && (
+                <div className="absolute top-4 right-4">
+                  <span
+                    data-testid="product-status-badge"
+                    className={`label-eyebrow px-3 py-1 ${
+                      product.status === "for_sale"
+                        ? "bg-[#4A5D23] text-[#F9F6F0]"
+                        : product.status === "sold"
+                        ? "bg-[#2C2A28] text-[#F9F6F0]"
+                        : "bg-[#F9F6F0] text-[#2C2A28] border border-[#2C2A28]"
+                    }`}
+                  >
+                    {product.status === "for_sale"
+                      ? "For Sale"
+                      : product.status === "sold"
+                      ? "Sold"
+                      : "Not For Sale"}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
 
