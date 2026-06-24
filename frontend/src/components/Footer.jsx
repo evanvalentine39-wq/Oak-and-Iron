@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Mail, MapPin } from "lucide-react";
+import { Youtube, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -56,7 +56,16 @@ export default function Footer() {
                   <Mail size={14} /> oakndiron@gmail.com
                 </li>
                 <li className="flex items-center gap-2">
-                  <Instagram size={14} /> @oakandiron
+                  <Youtube size={14} />
+                  <a
+                    href="https://www.youtube.com/channel/UCTL-eYbxD0t7J-vP7CWan7Q"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="footer-youtube-link"
+                    className="hover:text-[#F9F6F0]"
+                  >
+                    YouTube
+                  </a>
                 </li>
               </ul>
             </div>
