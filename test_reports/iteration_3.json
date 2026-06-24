@@ -1,0 +1,22 @@
+{
+  "summary": "Tested navbar text-color contrast fix across /, /portfolio, /contact at scroll 0 and / at scroll 400. The Navbar component throws a fatal JS error on every page ('Cannot access \\'location\\' before initialization'), so no navbar renders anywhere. The contrast fix cannot be verified until the TDZ bug is fixed.",
+  "tested_scope": ["frontend"],
+  "passed": [
+    "Frontend served (page background renders cream)"
+  ],
+  "failed": [
+    {
+      "area": "Navbar.jsx (TDZ ReferenceError)",
+      "issue": "Line 13: `const scrolled = scrolledState || location.pathname !== '/';` references `location` before it is declared by `useLocation()` on line 15. This is a const TDZ error — `location` is not the global window.location because the same identifier is declared later in the same scope, so JS throws 'Cannot access location before initialization'. The Navbar component crashes on every route, rendering nothing.",
+      "evidence": "Browser console on every page load: 'PAGE ERROR: Cannot access \\'location\\' before initialization' followed by React error overlay 'An error occurred in the <Navbar> component'. Screenshot of /portfolio shows blank cream page with no navbar visible. document.querySelector('[data-testid=\"site-navbar\"]') returns null.",
+      "priority": "HIGH"
+    }
+  ],
+  "action_items": [
+    "In /app/frontend/src/components/Navbar.jsx, move `const location = useLocation();` (line 15) ABOVE the `const scrolled = ...` line (line 13). The `scrolled` derivation must come after `useLocation()` is invoked. Example fix:\n  const location = useLocation();\n  const [scrolledState, setScrolled] = useState(false);\n  const [open, setOpen] = useState(false);\n  const scrolled = scrolledState || location.pathname !== '/';",
+    "Re-run navbar color verification after fix: /portfolio & /contact at scrollY=0 should show logo+links in #2C2A28 (rgb(44,42,40)) with cream backdrop-blur bar; / at scrollY=0 should show #F9F6F0 (rgb(249,246,240)); / at scrollY>24 should turn dark."
+  ],
+  "success_rate": {"backend": "n/a", "frontend": "0% (navbar crashes on all routes)"},
+  "retest_needed": true,
+  "full_testing_deferred": true
+}

@@ -9,7 +9,8 @@ const links = [
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolledState, setScrolled] = useState(false);
+  const scrolled = scrolledState || location.pathname !== "/";
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
