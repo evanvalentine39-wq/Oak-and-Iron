@@ -1,24 +1,17 @@
-import axios from "axios";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-export const API = `${BACKEND_URL}/api`;
-
-export const api = axios.create({
-  baseURL: API,
-  headers: { "Content-Type": "application/json" },
-});
+import { products } from "../data/products";
 
 export const fetchProducts = async () => {
-  const { data } = await api.get("/products");
-  return data;
+  return products;
 };
 
 export const fetchProduct = async (id) => {
-  const { data } = await api.get(`/products/${id}`);
-  return data;
+  return products.find((p) => p.id === id);
 };
 
 export const submitContact = async (payload) => {
-  const { data } = await api.post("/contact", payload);
-  return data;
+  console.log("Contact form payload:", payload);
+
+  throw new Error(
+    "Contact form is not configured yet. We'll connect it to EmailJS next."
+  );
 };
