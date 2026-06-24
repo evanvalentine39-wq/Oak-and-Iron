@@ -1,0 +1,17 @@
+{
+  "summary": "Verified navbar text color toggle at scroll=0 vs scroll=400 on home page, and verified backend product specs for arched-picture-frame. All checks passed.",
+  "tested_scope": ["frontend", "backend", "integration"],
+  "passed": [
+    "GET /api/products returns arched-picture-frame with specs ['Red oak frame','Walnut peg accents','Hand-finished'] and NO 'Steam-bent arch'",
+    "At scroll=0 on /, logo 'Oak & Iron' computed color = rgb(249, 246, 240) (cream)",
+    "At scroll=0 on /, HOME / PORTFOLIO / CONTACT links all rgb(249, 246, 240) (cream)",
+    "At scroll=400 on /, logo computed color = rgb(44, 42, 40) (dark)",
+    "At scroll=400 on /, HOME / PORTFOLIO / CONTACT links all rgb(44, 42, 40) (dark)",
+    "At scroll=400 the nav has cream backdrop: backgroundColor rgba(249,246,240,0.85), backdrop-filter blur(24px)"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true
+}

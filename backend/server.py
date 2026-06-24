@@ -40,7 +40,7 @@ PRODUCTS: Dict[str, Dict] = {
         "category": "Frames",
         "image": "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/2rtqwvhm_IMG_1688.jpg",
         "description": "",
-        "specs": ["Red oak frame", "Steam-bent arch", "Walnut peg accents", "Hand-finished"],
+        "specs": ["Red oak frame", "Walnut peg accents", "Hand-finished"],
     },
     "crucifix": {
         "id": "crucifix",

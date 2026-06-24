@@ -39,7 +39,7 @@ export default function Navbar() {
           data-testid="nav-logo"
           className="flex items-baseline gap-2 group"
         >
-          <span className="font-serif-display text-2xl tracking-tight text-[#2C2A28] group-hover:text-[#8C4A32] transition-colors duration-300">
+          <span className={`font-serif-display text-2xl tracking-tight transition-colors duration-300 ${scrolled ? "text-[#2C2A28] group-hover:text-[#8C4A32]" : "text-[#F9F6F0] group-hover:text-[#C8A07A]"}`}>
             Oak <span className="italic text-[#8C4A32]">&amp;</span> Iron
           </span>
         </Link>
@@ -52,8 +52,8 @@ export default function Navbar() {
               end={l.to === "/"}
               data-testid={l.testid}
               className={({ isActive }) =>
-                `nav-link label-eyebrow text-[#2C2A28] hover:text-[#8C4A32] transition-colors ${
-                  isActive ? "active text-[#8C4A32]" : ""
+                `nav-link label-eyebrow transition-colors ${scrolled ? "text-[#2C2A28] hover:text-[#8C4A32]" : "text-[#F9F6F0] hover:text-[#C8A07A]"} ${
+                  isActive ? "active" : ""
                 }`
               }
             >
