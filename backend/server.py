@@ -30,7 +30,52 @@ api_router = APIRouter(prefix="/api")
 
 
 # ---------- Product catalog (server-authoritative) ----------
-PRODUCTS: Dict[str, Dict] = {}
+PRODUCTS: Dict[str, Dict] = {
+    "crucifix": {
+        "id": "crucifix",
+        "name": "Hand-Carved Crucifix",
+        "tagline": "A quiet piece for a quiet wall.",
+        "year": "2025",
+        "status": "not_for_sale",
+        "category": "Devotional",
+        "image": "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/mdk5r26i_IMG_2805.jpg",
+        "description": "A small wall crucifix shaped from a single length of pale hardwood, with a hand-finished corpus lashed in place with natural twine. Built slowly, by hand, as a personal devotional piece.",
+        "specs": ["Wall-mounted", "Solid hardwood cross", "Hand-shaped corpus", "Natural twine binding"],
+    },
+    "harp": {
+        "id": "harp",
+        "name": "Lever Harp",
+        "tagline": "Strings, oak, and a lot of patience.",
+        "year": "2025",
+        "status": "not_for_sale",
+        "category": "Instruments",
+        "image": "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/0jxvakcb_IMG_2809.jpg",
+        "description": "A small lever harp built from maple and oak, with a hand-shaped neck and a soundbox joined with traditional methods. Strung, tuned, and ready to play.",
+        "specs": ["Maple neck and pillar", "Oak soundbox", "Hand-tuned", "Built 2025"],
+    },
+    "japanese-bench": {
+        "id": "japanese-bench",
+        "name": "Japanese-Style Bench",
+        "tagline": "Simple lines. Honest joinery.",
+        "year": "2025",
+        "status": "for_sale",
+        "category": "Furniture",
+        "image": "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/8xjriywo_IMG_2810.jpg",
+        "description": "A low bench in the Japanese tradition — oak top, splayed legs, and through-tenons with contrasting wedges. Finished with a hand-rubbed oil so the grain reads in the morning sun.",
+        "specs": ["Solid oak", "Through-tenon joinery", "Contrasting wedges", "Hand-rubbed oil finish"],
+    },
+    "dovetail-jewelry-box": {
+        "id": "dovetail-jewelry-box",
+        "name": "Dovetail Jewelry Box",
+        "tagline": "Every corner, cut by hand.",
+        "year": "2025",
+        "status": "for_sale",
+        "category": "Boxes",
+        "image": "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/rsos94ah_IMG_2811.jpg",
+        "description": "A two-tone keepsake box with hand-cut through-dovetails in oak and a contrasting padauk lid. The interior is fitted with a small lined tray for rings and small treasures.",
+        "specs": ["Oak body, padauk lid", "Hand-cut through-dovetails", "Felt-lined interior tray", "Oil and wax finish"],
+    },
+}
 
 
 # ---------- Pydantic Models ----------
