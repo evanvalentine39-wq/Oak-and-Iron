@@ -40,10 +40,7 @@ export default function Navbar() {
           className="flex items-baseline gap-2 group"
         >
           <span className="font-serif-display text-2xl tracking-tight text-[#2C2A28] group-hover:text-[#8C4A32] transition-colors duration-300">
-            Hearthwood
-          </span>
-          <span className="label-eyebrow text-[#8C4A32] hidden sm:inline">
-            Studio
+            Oak <span className="italic text-[#8C4A32]">&amp;</span> Iron
           </span>
         </Link>
 

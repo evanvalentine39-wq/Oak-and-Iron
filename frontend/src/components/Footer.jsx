@@ -50,13 +50,13 @@ export default function Footer() {
               <p className="label-eyebrow text-[#C8A07A] mb-4">Find me</p>
               <ul className="space-y-3 text-sm text-[#E3DACD]">
                 <li className="flex items-center gap-2">
-                  <MapPin size={14} /> Asheville, NC
+                  <MapPin size={14} /> Hutto, TX
                 </li>
                 <li className="flex items-center gap-2">
-                  <Mail size={14} /> hello@hearthwood.studio
+                  <Mail size={14} /> hello@oakandiron.com
                 </li>
                 <li className="flex items-center gap-2">
-                  <Instagram size={14} /> @hearthwood
+                  <Instagram size={14} /> @oakandiron
                 </li>
               </ul>
             </div>
@@ -65,8 +65,8 @@ export default function Footer() {
 
         <div className="border-t border-[#5C5852]/40 mt-20 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-xs text-[#C8A07A]">
-            © {new Date().getFullYear()} Hearthwood Studio. Made by hand in the
-            Blue Ridge Mountains.
+            © {new Date().getFullYear()} Oak &amp; Iron. Made by hand in the
+            Texas Hill Country.
           </p>
           <p className="text-xs text-[#5C5852]">
             Every piece is signed. Every cut, considered.

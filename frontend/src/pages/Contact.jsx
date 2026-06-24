@@ -67,14 +67,14 @@ export default function Contact() {
                 <Mail size={18} className="mt-1 text-[#8C4A32]" />
                 <div>
                   <p className="label-eyebrow text-[#8C4A32]">Email</p>
-                  <p>hello@hearthwood.studio</p>
+                  <p>hello@oakandiron.com</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
                 <MapPin size={18} className="mt-1 text-[#8C4A32]" />
                 <div>
                   <p className="label-eyebrow text-[#8C4A32]">Workshop</p>
-                  <p>Asheville, NC — visits by appointment</p>
+                  <p>Hutto, TX — visits by appointment</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">

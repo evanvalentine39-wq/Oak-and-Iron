@@ -165,7 +165,7 @@ export default function ProductDetail() {
                 Or commission something similar
               </Link>
               <p className="text-xs text-[#5C5852] text-center pt-2">
-                Secure checkout via Stripe. Ships from Asheville, NC.
+                Secure checkout via Stripe. Ships from Hutto, TX.
               </p>
             </div>
           </div>

@@ -1,19 +1,11 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { fetchProducts } from "@/lib/api";
 
 const HERO_IMG = "https://images.pexels.com/photos/313776/pexels-photo-313776.jpeg";
 const CRAFTSMAN_IMG = "https://images.unsplash.com/photo-1659930087003-2d64e33181f7";
 const WORKSHOP_IMG = "https://images.pexels.com/photos/14951839/pexels-photo-14951839.jpeg";
 
 export default function Home() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetchProducts().then(setProducts).catch(() => setProducts([]));
-  }, []);
-
   return (
     <div data-testid="home-page">
       {/* Hero */}
@@ -30,7 +22,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 h-full flex flex-col justify-end pb-24">
           <div className="max-w-2xl fade-up">
             <p className="label-eyebrow text-[#C8A07A] mb-6">
-              Asheville, NC — Est. 2014
+              Hutto, TX — Est. 2014
             </p>
             <h1 className="font-serif-display text-5xl sm:text-6xl lg:text-7xl text-[#F9F6F0] leading-[0.95] tracking-tight">
               Heirloom wood,
@@ -38,8 +30,8 @@ export default function Home() {
               <span className="italic text-[#C8A07A]">made slow.</span>
             </h1>
             <p className="mt-8 text-lg text-[#E3DACD] max-w-xl leading-relaxed">
-              Hand-built furniture and kitchen pieces from American hardwoods.
-              One bench. One pair of hands. One piece at a time.
+              Hand-built pieces using traditional joinery and American
+              hardwoods. One bench. One pair of hands. One piece at a time.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
@@ -64,114 +56,6 @@ export default function Home() {
           <p className="label-eyebrow text-[#C8A07A] writing-mode-vertical text-right">
             Scroll ↓
           </p>
-        </div>
-      </section>
-
-      {/* About / Story */}
-      <section
-        data-testid="about-section"
-        className="max-w-7xl mx-auto px-6 sm:px-12 py-32"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-20 items-start">
-          <div className="md:col-span-5 md:sticky md:top-32">
-            <p className="label-eyebrow text-[#8C4A32] mb-6">The Maker</p>
-            <h2 className="font-serif-display text-4xl sm:text-5xl text-[#2C2A28] leading-[1.05] tracking-tight">
-              A small workshop.
-              <br />
-              <span className="italic">A long apprenticeship.</span>
-            </h2>
-          </div>
-          <div className="md:col-span-6 md:col-start-7 space-y-6 text-[#5C5852] text-lg leading-relaxed">
-            <p>
-              I&apos;ve been working wood for the better part of two decades.
-              What started in my grandfather&apos;s garage with a dull chisel
-              and a stubborn piece of cherry is now a one-person shop tucked
-              into a converted hay barn in the Blue Ridge.
-            </p>
-            <p>
-              Every board passes through my hands. I source domestic
-              hardwoods—walnut, oak, ash, cherry—from sawyers I&apos;ve known
-              for years. There are no shortcuts here. No CNC. No assembly line.
-            </p>
-            <p>
-              If you commission a piece, you&apos;ll hear from me directly.
-              We&apos;ll talk about how you live, where it&apos;ll sit, what
-              you want it to feel like in twenty years.
-            </p>
-            <Link
-              to="/contact"
-              data-testid="about-contact-link"
-              className="inline-flex items-center gap-2 label-eyebrow text-[#8C4A32] hover:text-[#703B28] border-b border-[#8C4A32] pb-1 mt-4"
-            >
-              Start a commission <ArrowRight size={14} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Work / Portfolio strip */}
-      <section
-        data-testid="portfolio-section"
-        className="bg-[#F1EBE4] py-32"
-      >
-        <div className="max-w-7xl mx-auto px-6 sm:px-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div>
-              <p className="label-eyebrow text-[#8C4A32] mb-4">
-                Featured Pieces
-              </p>
-              <h2 className="font-serif-display text-4xl sm:text-5xl text-[#2C2A28] leading-tight">
-                Recent work from
-                <br />
-                <span className="italic">the bench.</span>
-              </h2>
-            </div>
-            <Link
-              to="/shop"
-              data-testid="portfolio-shop-link"
-              className="label-eyebrow text-[#8C4A32] border-b border-[#8C4A32] pb-1 hover:text-[#703B28]"
-            >
-              See everything →
-            </Link>
-          </div>
-
-          {/* Asymmetric grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
-            {products.slice(0, 4).map((p, idx) => {
-              const spans = [
-                "md:col-span-7 md:row-span-2 aspect-[4/5]",
-                "md:col-span-5 aspect-[4/3]",
-                "md:col-span-5 aspect-[5/4]",
-                "md:col-span-7 aspect-[5/3]",
-              ];
-              return (
-                <Link
-                  key={p.id}
-                  to={`/shop/${p.id}`}
-                  data-testid={`portfolio-card-${p.id}`}
-                  className={`group product-card relative overflow-hidden bg-[#2C2A28] ${spans[idx]}`}
-                >
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    className="product-card-image absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a1816]/85 via-transparent to-transparent opacity-90" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 text-[#F9F6F0]">
-                    <p className="label-eyebrow text-[#C8A07A] mb-2">
-                      {p.category}
-                    </p>
-                    <h3 className="font-serif-display text-2xl sm:text-3xl leading-tight">
-                      {p.name}
-                    </h3>
-                    <p className="mt-1 text-sm text-[#E3DACD] italic">
-                      {p.tagline}
-                    </p>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
         </div>
       </section>
 

@@ -27,7 +27,7 @@ db = client[os.environ["DB_NAME"]]
 
 STRIPE_API_KEY = os.environ.get("STRIPE_API_KEY")
 
-app = FastAPI(title="Hearthwood Studio API")
+app = FastAPI(title="Oak & Iron API")
 api_router = APIRouter(prefix="/api")
 
 
@@ -148,7 +148,7 @@ class PaymentStatusResponse(BaseModel):
 # ---------- Routes ----------
 @api_router.get("/")
 async def root():
-    return {"message": "Hearthwood Studio API"}
+    return {"message": "Oak & Iron API"}
 
 
 @api_router.get("/products", response_model=List[Product])
