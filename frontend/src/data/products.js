@@ -6,7 +6,7 @@ export const products = [
     year: "2025",
     status: "not_for_sale",
     category: "Frames",
-    image: "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/2rtqwvhm_IMG_1688.jpg",
+    image: "/images/Frame.jpeg",
     description: "",
     specs: ["Red oak frame", "Walnut peg accents", "Hand-finished"],
   },
@@ -17,9 +17,14 @@ export const products = [
     year: "2024",
     status: "not_for_sale",
     category: "Devotional",
-    image: "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/mdk5r26i_IMG_2805.jpg",
+    image: "/images/Crucifix.jpeg",
     description: "Carved one evening at a time. Hangs in our hallway.",
-    specs: ["Basswood", "Hand-carved corpus", "Twine binding", "Wall-mounted"],
+    specs: [
+      "Basswood",
+      "Hand-carved corpus",
+      "Twine binding",
+      "Wall-mounted",
+    ],
   },
   {
     id: "harp",
@@ -28,9 +33,15 @@ export const products = [
     year: "2025",
     status: "for_sale",
     category: "Instruments",
-    image: "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/0jxvakcb_IMG_2809.jpg",
-    description: "Strung, tuned, and ready to play. First harp I've built — won't be the last.",
-    specs: ["Poplar frame", "Cedar soundbox", "Strung and tuned", "Built 2025"],
+    image: "/images/Harp.jpeg",
+    description:
+      "Strung, tuned, and ready to play. First harp I've built — won't be the last.",
+    specs: [
+      "Poplar frame",
+      "Cedar soundbox",
+      "Strung and tuned",
+      "Built 2025",
+    ],
   },
   {
     id: "japanese-bench",
@@ -39,9 +50,15 @@ export const products = [
     year: "2026",
     status: "for_sale",
     category: "Furniture",
-    image: "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/8xjriywo_IMG_2810.jpg",
-    description: "Built for the front porch but it ended up in the living room. Sits two if you're friendly.",
-    specs: ["White oak top", "White oak legs", "Red oak braces", "Through-tenon joinery"],
+    image: "/images/Bench.jpeg",
+    description:
+      "Built for the front porch but it ended up in the living room. Sits two if you're friendly.",
+    specs: [
+      "White oak top",
+      "White oak legs",
+      "Red oak braces",
+      "Through-tenon joinery",
+    ],
   },
   {
     id: "dovetail-jewelry-box",
@@ -50,8 +67,14 @@ export const products = [
     year: "2026",
     status: "for_sale",
     category: "Boxes",
-    image: "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/rsos94ah_IMG_2811.jpg",
-    description: "A small box for small things. The padauk lid was a gift from a friend.",
-    specs: ["Oak sides", "Padauk top", "Felt-lined interior", "Hand-cut dovetails"],
+    image: "/images/Dovetail Box.jpeg",
+    description:
+      "A small box for small things. The padauk lid was a gift from a friend.",
+    specs: [
+      "Oak sides",
+      "Padauk top",
+      "Felt-lined interior",
+      "Hand-cut dovetails",
+    ],
   },
 ];
