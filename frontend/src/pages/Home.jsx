@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 const HERO_IMG = "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/m8730dla_IMG_2813.jpg";
-const WORKSHOP_IMG = "https://images.pexels.com/photos/14951839/pexels-photo-14951839.jpeg";
 
 export default function Home() {
   return (
@@ -17,21 +16,28 @@ export default function Home() {
           alt="A handcrafted wooden harp on a workbench in Hutto, Texas"
           className="absolute inset-0 w-full h-full object-cover ken-burns"
         />
+
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a1816]/85 via-[#1a1816]/55 to-transparent" />
+
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 h-full flex flex-col justify-end pb-24">
           <div className="max-w-2xl fade-up">
             <p className="label-eyebrow text-[#C8A07A] mb-6">
               Hutto, TX — Est. 2025
             </p>
+
             <h1 className="font-serif-display text-5xl sm:text-6xl lg:text-7xl text-[#F9F6F0] leading-[0.95] tracking-tight">
               Built by hand.
               <br />
-              <span className="italic text-[#C8A07A]">Built to last.</span>
+              <span className="italic text-[#C8A07A]">
+                Built to last.
+              </span>
             </h1>
+
             <p className="mt-8 text-lg text-[#E3DACD] max-w-xl leading-relaxed">
               Hand-built pieces using traditional joinery and American
               hardwoods. One bench. One pair of hands. One piece at a time.
             </p>
+
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 to="/portfolio"
@@ -40,6 +46,7 @@ export default function Home() {
               >
                 See the Work <ArrowRight size={16} />
               </Link>
+
               <Link
                 to="/contact"
                 data-testid="hero-contact-cta"
@@ -47,6 +54,15 @@ export default function Home() {
               >
                 Contact Here <ArrowUpRight size={16} />
               </Link>
+
+              <a
+                href="https://www.youtube.com/channel/UCTL-eYbxD0t7J-vP7CWan7Q"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#C8A07A] text-[#2C2A28] label-eyebrow hover:bg-[#D8B38C] transition-colors duration-300"
+              >
+                ▶ Watch My Builds
+              </a>
             </div>
           </div>
         </div>
@@ -57,8 +73,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-
-      {/* Workshop banner removed */}
     </div>
   );
 }
