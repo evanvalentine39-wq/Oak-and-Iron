@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import { products } from "../data/products";
 
 export const fetchProducts = async () => {
@@ -9,9 +10,22 @@ export const fetchProduct = async (id) => {
 };
 
 export const submitContact = async (payload) => {
-  console.log("Contact form payload:", payload);
-
-  throw new Error(
-    "Contact form is not configured yet. We'll connect it to EmailJS next."
+  await emailjs.send(
+    "service_cozj86k",
+    "template_vc7t94b",
+    {
+      name: payload.name,
+      email: payload.email,
+      phone: payload.phone,
+      project_type: payload.project_type,
+      budget: payload.budget,
+      message: payload.message,
+    },
+    "hZGUIJIUFQ8wX9Og3"
   );
+
+  return {
+    success: true,
+    message: "Your message has been sent successfully!",
+  };
 };
