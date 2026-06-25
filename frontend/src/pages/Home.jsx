@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
-const HERO_IMG = "https://customer-assets.emergentagent.com/job_timber-works-9/artifacts/m8730dla_IMG_2813.jpg";
+const HERO_IMG = "/images/Cover Photo.jpeg";
 
 export default function Home() {
   return (
