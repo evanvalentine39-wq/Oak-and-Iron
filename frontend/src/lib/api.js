@@ -16,9 +16,7 @@ export const submitContact = async (payload) => {
     {
       name: payload.name,
       email: payload.email,
-      phone: payload.phone,
-      project_type: payload.project_type,
-      budget: payload.budget,
+      subject: payload.subject,
       message: payload.message,
     },
     "hZGUIJIUFQ8wX9Og3"
