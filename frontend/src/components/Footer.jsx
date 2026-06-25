@@ -10,12 +10,18 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 sm:px-12 py-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-7">
-            <p className="label-eyebrow text-[#C8A07A] mb-6">Let&apos;s talk</p>
+            <p className="label-eyebrow text-[#C8A07A] mb-6">
+              Let&apos;s talk
+            </p>
+
             <h2 className="font-serif-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
               Have a piece in mind?
               <br />
-              <span className="italic text-[#C8A07A]">Tell me about it.</span>
+              <span className="italic text-[#C8A07A]">
+                Tell me about it.
+              </span>
             </h2>
+
             <Link
               to="/contact"
               data-testid="footer-contact-cta"
@@ -27,18 +33,23 @@ export default function Footer() {
 
           <div className="md:col-span-5 grid grid-cols-2 gap-8">
             <div>
-              <p className="label-eyebrow text-[#C8A07A] mb-4">Studio</p>
+              <p className="label-eyebrow text-[#C8A07A] mb-4">
+                Studio
+              </p>
+
               <ul className="space-y-3 text-sm text-[#E3DACD]">
                 <li>
                   <Link to="/" className="hover:text-[#F9F6F0]">
                     Home
                   </Link>
                 </li>
+
                 <li>
                   <Link to="/portfolio" className="hover:text-[#F9F6F0]">
                     Portfolio
                   </Link>
                 </li>
+
                 <li>
                   <Link to="/contact" className="hover:text-[#F9F6F0]">
                     Contact
@@ -46,15 +57,23 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
+
             <div>
-              <p className="label-eyebrow text-[#C8A07A] mb-4">Find me</p>
+              <p className="label-eyebrow text-[#C8A07A] mb-4">
+                Find Me
+              </p>
+
               <ul className="space-y-3 text-sm text-[#E3DACD]">
                 <li className="flex items-center gap-2">
-                  <MapPin size={14} /> Hutto, TX
+                  <MapPin size={14} />
+                  Hutto, TX
                 </li>
+
                 <li className="flex items-center gap-2">
-                  <Mail size={14} /> oakndiron@gmail.com
+                  <Mail size={14} />
+                  oakndiron@gmail.com
                 </li>
+
                 <li className="flex items-center gap-2">
                   <Youtube size={14} />
                   <a
@@ -72,13 +91,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-[#5C5852]/40 mt-20 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="text-xs text-[#C8A07A]">
-            © {new Date().getFullYear()} Oak &amp; Iron. Made by hand in the
-            Texas Hill Country.
-          </p>
-          <p className="text-xs text-[#5C5852]">
-            Every piece is signed. Every cut, considered.
+        <div className="border-t border-[#5C5852]/40 mt-20 pt-8">
+          <p className="text-xs text-[#C8A07A] text-center">
+            © {new Date().getFullYear()} Oak &amp; Iron. All Rights Reserved.
           </p>
         </div>
       </div>
